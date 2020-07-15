@@ -1,8 +1,11 @@
+.btn-outline-light.focus, .btn-outline-light:focus {
+  box-shadow: none;
+}
 
 html {
-    background: rgb(195,34,97);
-    background: linear-gradient(0deg, rgba(195,34,97,1) 0%, rgba(253,45,46,1) 100%);
-    min-height: 100%;
+  background: rgb(195,34,97);
+  background: linear-gradient(0deg, rgba(195,34,97,1) 0%, rgba(253,45,46,1) 100%);
+  min-height: 100%;
 }
 
 /*
@@ -49,9 +52,8 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: 50em;
 }
-
 
 /*
  * Header
@@ -95,7 +97,6 @@ body {
   }
 }
 
-
 /*
  * Cover
  */
@@ -108,7 +109,7 @@ body {
 }
 
 .intro {
-    font-size: 1.4em;
+  font-size: 1.4em;
 }
 
 /*
