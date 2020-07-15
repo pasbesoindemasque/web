@@ -120,5 +120,18 @@ body {
 }
 
 .reason {
-    font-size: 3em;
+  font-size: 3em;
+}
+
+.copy {
+  font-size: 0.75em;
+}
+
+.copy a {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.copy a:hover {
+  opacity: 1;
 }
