@@ -29,9 +29,9 @@
 
       <main role="main" class="inner cover">
         <h1 class="intro">Tu n'as pas besoin de masque parce que...</h1>
-        <p class="lead reason"></p>
+        <p class="lead reason" id="sentence"></p>
         <p class="lead">
-          <a href="/" class="btn btn-outline-light">Need another reason?</a>
+          <a href="/" class="btn btn-outline-light" id="btn-other-reason">Need another reason?</a>
         </p>
       </main>
 
@@ -41,5 +41,71 @@
         </div>
       </footer>
     </div>
+
+    <script type="text/javascript">
+      SentenceGenerator = function(opts = {}) {
+        this.sentences = opts.sentences;
+
+        this.loadRandSentence();
+
+        this.bindEvents()
+      }
+
+      SentenceGenerator.prototype = {
+
+        loadRandSentence: function() {
+          document.getElementById('sentence').innerHTML = this.randSentence();
+        },
+
+        bindEvents: function() {
+          var _this = this;
+          document.getElementById('btn-other-reason').addEventListener('click', function(e) {
+            e.preventDefault();
+            _this.loadRandSentence();
+
+            return false;
+          })
+        },
+
+        randSentence: function() {
+          return this.sentences[this.randInt(this.sentences.length)];
+        },
+
+        randInt: function(max, min) {
+          return (min || 0) + Math.floor(Math.random() * max);
+        }
+      }
+
+      new SentenceGenerator({
+        sentences: [
+          "on s'en calice si les parents de tes voisins meurent, hein?",
+          "tu ne te soucies pas du bien-être des autres et tu veux qu'ils souffrent.",
+          "tu ne peux pas t'en tenir à ton seul domaine d'expertise, c'est-à-dire être une graine.",
+          "tu te crisses des autres.",
+          "tu penses juste à ton petit confort et pas à la vie des autres",
+          "tu penses que les memes partagés sur Facebook sont plus fiables que l'avis de FUCKING DOCTEURS.",
+          "t'es allé à l'université de la vie.",
+          "t'as regardé des vidéos d'Alexis Cossette-Trudel sur YouTube.",
+          "tu ne veux pas faire «de l'epoxy».",
+          "tu refuses de confier ta santé à des professionnels.",
+          "fuck les autres, n'est-ce pas? ",
+          "t'es intimidé par les gens qui en savent plus que toi.",
+          "t'es un épidémiologiste certifié par Facebook.",
+          "Éric Duhaime t'a dit que c'était dangereux.",
+          "tu regrettes de ne pas avoir écouté dans tes cours au secondaire, ce qui t'aurait permis d'avoir une carrière enrichissante sur les plans intellectuel et financier. ",
+          "tu ne crois pas à la médecine moderne.",
+          "il faut bien que quelqu'un représente les épais.",
+          "faudrait surtout pas que les médecins portent des masques pendant les opérations à cœur ouvert.",
+          "tu songes à être candidat à Occupation Double l'an prochain.",
+          "ne pas mourir, c'est surévalué.",
+          "tu es une des sections du mille-pattes humain.",
+          "la 5G ne peut pas entrer par ta bouche ni ton nez, juste par tes autres orifices.",
+          "tu n'as plus de mains pour débarrer ton téléphone intelligent.",
+          "ta mère te trouve plus beau sans masque.",
+          "t'as toujours rêvé d'essayer un respirateur aux soins intensifs.",
+          "tu souffres du syndrome de l'égoïsme aigu et de l'ignorance pathologique."
+        ]
+      });
+    </script>
   </body>
 </html>
